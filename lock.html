@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="lock">
         <div class="lock-face">
@@ -15,6 +17,11 @@
             <div class="hand hand-s"></div>
         </div>
     </div>
+    <ul id="lock">
+        <li id="hour"></li>
+        <li id="minute"></li>
+        <li id="second"></li>
+    </ul>
 </body>
 <script>
     const $interval = 1000;
@@ -22,18 +29,44 @@
     const secondMinus = document.querySelector('.hand-m');
     const secondHand = document.querySelector('.hand-s');
 
+    const handLock = document.getElementById('lock');
+
+
+    const hour = document.getElementById('hour');
+    const minute = document.getElementById('minute');
+    const second = document.getElementById('second');
+
     const setDate = () => {
         const now = new Date();
+        const hours = now.getHours();
         const minutes = now.getMinutes();
         const seconds = now.getSeconds();
-        const secondsDegrees = ((seconds/60) * 360) + 90;
 
+        const secondsDegrees = ((seconds / 60) * 360) + 90;
         secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
         console.log(`minutes:${minutes}, seconds:${seconds}, secondsDegrees${secondsDegrees}`);
+
+        const minutesDegrees = ((minutes / 60) * 360) + 90;
+        secondMinus.style.transform = `rotate(${minutesDegrees}deg)`;
+
+        const hoursDegrees = ((hours / 60) * 360) + 90;
+        secondHour.style.transform = `rotate(${hoursDegrees}deg)`;
+
     }
 
     setInterval(setDate, $interval);
 
+
+    const showlock = () => {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+
+
+    }
+    showlock();
+
 </script>
+
 </html>
