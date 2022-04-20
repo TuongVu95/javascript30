@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="lock">
+        <div class="lock-face">
+            <div class="hand hand-h"></div>
+            <div class="hand hand-m"></div>
+            <div class="hand hand-s"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const $interval = 1000;
+    const secondHour = document.querySelector('.hand-h');
+    const secondMinus = document.querySelector('.hand-m');
+    const secondHand = document.querySelector('.hand-s');
+
+    const setDate = () => {
+        const now = new Date();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const secondsDegrees = ((seconds/60) * 360) + 90;
+
+        secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+        console.log(`minutes:${minutes}, seconds:${seconds}, secondsDegrees${secondsDegrees}`);
+    }
+
+    setInterval(setDate, $interval);
+
+</script>
+</html>

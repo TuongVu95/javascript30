@@ -1,0 +1,41 @@
+body {
+    background: #000;
+    font-size: 62.5%;
+}
+
+.lock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 5px solid #fff;
+    border-radius: 100%;
+    &-face {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+    }
+    .hand {
+        position: absolute;
+        top: 50%;
+        width: 50%;
+        background: #fff;
+        height: .4rem;
+
+        transform-origin: 100%;
+        transform: rotate(90deg);
+        transition: all .6s cubic-bezier(0.1, 2.99, 0.58, 1);
+        &-h{
+
+        }
+        &-m{
+            // width: 40%;
+        }
+        &-s{
+            // width: 30%;
+            transform: rotate(30deg);
+            transition-timing-function: ease-in-out;
+        }
+    }
+}
