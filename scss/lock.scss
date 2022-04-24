@@ -37,3 +37,12 @@ body {
         }
     }
 }
+.lock-wall{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    li{
+        font-size: 2rem;
+        padding: 0rem 1rem;
+    }
+}
