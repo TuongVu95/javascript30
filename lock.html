@@ -17,9 +17,11 @@
             <div class="hand hand-s"></div>
         </div>
     </div>
-    <ul id="lock">
+    <ul id="lock" class="lock-wall">
         <li id="hour"></li>
+        <li>:</li>
         <li id="minute"></li>
+        <li>:</li>
         <li id="second"></li>
     </ul>
 </body>
@@ -44,7 +46,7 @@
 
         const secondsDegrees = ((seconds / 60) * 360) + 90;
         secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-        console.log(`minutes:${minutes}, seconds:${seconds}, secondsDegrees${secondsDegrees}`);
+        console.log(`minutes:${minutes}, seconds:${(seconds / 60) * 360}, secondsDegrees${secondsDegrees}`);
 
         const minutesDegrees = ((minutes / 60) * 360) + 90;
         secondMinus.style.transform = `rotate(${minutesDegrees}deg)`;
@@ -52,20 +54,13 @@
         const hoursDegrees = ((hours / 60) * 360) + 90;
         secondHour.style.transform = `rotate(${hoursDegrees}deg)`;
 
+
+        hour.innerHTML = hours;
+        minute.innerHTML = minutes;
+        second.innerHTML = seconds;
     }
 
     setInterval(setDate, $interval);
-
-
-    const showlock = () => {
-        const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
-
-
-    }
-    showlock();
 
 </script>
 
